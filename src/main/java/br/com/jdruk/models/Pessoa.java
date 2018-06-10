@@ -2,18 +2,21 @@ package br.com.jdruk.models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity @Table(name="person")
 public class Pessoa {
-    public String getName() {
-        return name;
+    @Id @GeneratedValue
+    private Long id;
+
+    @Column(name = "name")
+    private String nome;
+
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String name) {
+        this.nome = name;
     }
-
-    @Column
-    private String name;
 
     public Long getId() {
         return id;
@@ -23,12 +26,13 @@ public class Pessoa {
         this.id = id;
     }
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-
-    public Pessoa(String name, Long id) {
-        this.name = name;
+    public Pessoa(String nome, Long id) {
+        this.nome = nome;
         this.id = id;
+    }
+
+    public Pessoa(String nome){
+        this(nome,null);
     }
 
     public Pessoa(){}
