@@ -1,6 +1,4 @@
-import br.com.jdruk.models.Employee;
-import br.com.jdruk.models.Musica;
-import br.com.jdruk.models.Pessoa;
+import br.com.jdruk.models.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,9 +28,17 @@ public class Main {
 
 //        System.out.println(em.getTransaction().isActive());
 //        System.out.println(p.getNome());
-        em.getTransaction().begin();
-        em.persist(new Musica(null, "musica"));
-        em.getTransaction().commit();
+//        em.getTransaction().begin();
+//        em.persist(new Musica(null, "musica"));
+//        em.getTransaction().commit();
+//        em.close();
+//        em.i
+
+        //new Musica().create();
+        Chaves id = new Chaves(1L, 1L);
+        ChaveComposta emp = em.find(ChaveComposta.class, id);
+
+        // ler sobre table gerenetor
 
     }
 

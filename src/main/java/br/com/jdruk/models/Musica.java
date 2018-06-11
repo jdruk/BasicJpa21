@@ -1,8 +1,6 @@
 package br.com.jdruk.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Não é necessário anotar todos os atributos da classe
@@ -12,7 +10,7 @@ import javax.persistence.Id;
  *  Construtor sem parametros
  * */
 @Entity
-public class Musica {
+public class Musica extends  Model{
     public Musica(Long id, String nome) {
         this.id = id;
         this.nome = nome;
@@ -24,6 +22,9 @@ public class Musica {
 
     @Id @GeneratedValue
     private Long id;
+
+    // Basic informa se o atributo pode ou não ser null
+    @Basic(optional = false, fetch = FetchType.EAGER)
     private String nome;
 
     public String getNome() {
